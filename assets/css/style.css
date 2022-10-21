@@ -42,6 +42,7 @@ input[type='button'],
 input[type='submit'],
 button {
   cursor: pointer;
+  outline: none;
 }
 
 strong {
@@ -82,6 +83,15 @@ sub { bottom: -.25em; }
 .cf { *zoom: 1; }
 
 /*for all*/
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
 body {
   box-sizing: border-box;
   font-family: sans-serif;
@@ -97,55 +107,226 @@ li {
   list-style-type: none;
 }
 
+span { display: inline-block; }
+::first-letter { text-transform: uppercase; }
+
+::placeholder {
+  color: #777;
+  text-transform: capitalize;
+}
+
+input[type] { outline: none; }
+
 /*for wrapper*/
 .wrapper {
-  max-width: 1360px;
+  max-width: 1366px;
   width: 86%; 
   margin: 0 auto;
 }
-/*=================================
-  Header styling starts here
-=================================*/
-
-
-
-
-
-
-/*=================================
-  Header styling ends here
-=================================*/  
 
 /*=================================
   main styling starts here
 =================================*/
 
+.shopping-cart .wrapper {
+  padding: 20px 30px;
+  background-color: #CBE4E1;
+}
 
+.section-heading {
+  color: #8D080B;
+  font-size: 32px;
+  font-weight: 600;
+  text-transform: capitalize;
+}
 
+.cart-form {
+  padding: 20px 38px;
+  margin: 20px 0 35px;
+  display: flex;
+  justify-content: space-between;
+  background-color: #fff;
+}
 
+.cart-form > * {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
 
+.input-group > div { position: relative; }
 
+.input-group input {
+  padding: 5px 10px;
+  border-radius: 2px;
+  border: 1px solid #666;
+  font-size: 15px;
+}
 
+.input-error {
+  display: block;
+  position: absolute;
+  color: #ff0000;
+  font-size: 11px;
+  opacity: 0;
+  text-transform: capitalize;
+  visibility: hidden;
+}
+
+.input-error.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.input-error::before { content: '**'; }
+
+.input-control input,
+.clear-shopping-button {
+  padding: 5px 40px;
+  border: none;
+  border-radius: 2px;
+  background-color: #8EC63E;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  text-transform: capitalize;
+  transition: all .3s;
+}
+
+.input-control input:hover,
+.clear-shopping-button:hover {
+  background-color: #8D080B;
+}
+
+.modify-button { display: none; }
+.modify-button.active { display: block; }
+.display-none { display: none; }
+
+.form-container { position: relative; }
+
+.select-products {
+  width: 100%;
+  max-height: 0;
+  display: flex;
+  overflow-y: scroll;
+  position: absolute;
+  top: 110%;
+  background-color: #444;
+  flex-direction: column;
+  transition: all .3s;
+  scrollbar-width: thin;
+  scrollbar-color: #111 #666;
+}
+
+.select-products.active { max-height: 150px; }
+
+.select-products::-webkit-scrollbar {
+  width: 8px;
+  background-color: #666;
+}
+
+.select-products::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background-color: #111;
+}
+
+.select-products-item {
+  padding: 10px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.select-products-item.active,
+.select-products-item:hover {
+  background-color: #222;
+}
+
+.shopping-lists {
+  padding: 25px 20px 15px;
+  margin-bottom: 35px;
+  background-color: #fff;
+}
+
+.lists-heading {
+  color: #444;
+  font-size: 24px;
+  text-transform: capitalize;
+}
+
+.cart-title {
+  display: flex;
+}
+
+.cart-title li {
+  width: 16.66%;
+  padding: 10px 0;
+  background-color: #CFCFCF;
+  color: #444;
+  font-weight: 600;
+  text-align: center;
+}
+
+.cart-products-all {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cart-products {
+  display: flex;
+  background-color: #fff;
+}
+
+.cart-products li {
+  width: 16.66%;
+  padding: 10px;
+  color: #222;
+  text-align: center;
+  word-break: break-word;
+}
+
+.product-img img {
+  max-width: 60px;
+  width: 70px;
+}
+
+.product-modify span,
+.product-remove span {
+  padding: 5px;
+  border-radius: 2px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+  opacity: .7;
+  transition: all .3s;
+}
+
+.product-modify span:hover,
+.product-remove span:hover {
+  opacity: 1;
+}
+
+.product-modify span { background-color: #444; }
+.product-remove span { background-color: #ff0000; }
+
+.clear-shopping span:last-child {
+  color: #444;
+  font-size: 14px;
+}
+
+.clear-shopping span:last-child::before { content: '*'; }
 
 /*=================================
   main styling ends here
 =================================*/
 
+/* ============================= */
+
 /*=================================
-  footer styling starts here
-=================================*/ 
+  media query starts here
+=================================*/
 
-
-
-
-
-
-
- /*=================================
-  footer styling ends here
-=================================*/ 
-
-/*media query starts*/
 /*media query for 995px starts here*/
 @media only screen and (max-width: 995px) {
 
